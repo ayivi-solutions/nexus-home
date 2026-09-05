@@ -84,7 +84,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,[
 .phone-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32%;height:5px;background:#0a1326;border-radius:4px;z-index:1}
 .phone-screen small{color:rgba(255,255,255,.5);font-size:.5rem;text-transform:uppercase;letter-spacing:.04em}
 .phone-screen>b{color:#fff;font-size:.92rem;font-family:Sora,sans-serif;font-weight:700}
-.phone-bars{width:100%;height:32px;margin-top:2px}
+.phone-chart-row{display:flex;align-items:center;gap:6px;margin-top:2px}
+.phone-bars{flex:1 1 0%;min-width:0;height:30px}
+.phone-donut{flex:0 0 auto;width:32px;height:32px}
+.pdonut-track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:5}
+.pdonut-seg{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;transform-origin:50% 50%;transform:rotate(-90deg);stroke-dasharray:94.2;stroke-dashoffset:94.2;animation:pdonutSweep 1s ease-out .55s forwards}
+.phone-trend{width:100%;height:18px;margin-top:3px}
+.ptrend-line{fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:drawLine 1s ease-out .55s forwards}
+.ptrend-dot{fill:var(--gold);opacity:0;animation:fadeIn .3s ease 1.3s forwards,dotPulse 2s ease-in-out 1.6s infinite}
 .phone-bars .pbar{fill:var(--gold);opacity:.85;transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:barGrow .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d)}
 .phone-alert{margin-top:auto;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(232,181,99,.25);border-radius:8px;padding:6px 7px;font-size:.52rem;line-height:1.3;color:#fff;animation:alertCycle 6s ease-in-out infinite}
 .alert-dot{width:6px;height:6px;border-radius:50%;background:#e8846b;flex:0 0 auto;animation:livePulse 1.6s ease-in-out infinite}
@@ -96,6 +103,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,[
 @keyframes barGrow{to{transform:scaleY(1)}}
 @keyframes donutSweep1{to{stroke-dashoffset:95.4}}
 @keyframes donutSweep2{to{stroke-dashoffset:193.4}}
+@keyframes pdonutSweep{to{stroke-dashoffset:30.1}}
 @keyframes drawLine{to{stroke-dashoffset:0}}
 @keyframes fadeIn{to{opacity:1}}
 @keyframes dotPulse{0%,100%{r:3.4}50%{r:4.6}}
@@ -113,6 +121,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,[
 
 /* ===== Reduced motion: close the gap on ALL continuous animation (new + pre-existing) ===== */
 @media(prefers-reduced-motion:reduce){
-  .hero-orbit,.orbit-card,.hero-device,.device-phone,.dash-scan,.dash-live em,.alert-dot,.phone-alert,.trend-dot{animation:none!important}
-  .dash-bars rect,.phone-bars .pbar,.donut-seg,.trend-line,.trend-fill{animation:none!important;opacity:1!important;transform:scaleY(1)!important;stroke-dashoffset:0!important}
+  .hero-orbit,.orbit-card,.hero-device,.device-phone,.dash-scan,.dash-live em,.alert-dot,.phone-alert,.trend-dot,.ptrend-dot{animation:none!important}
+  .dash-bars rect,.phone-bars .pbar,.donut-seg,.pdonut-seg,.trend-line,.trend-fill,.ptrend-line{animation:none!important;opacity:1!important;transform:scaleY(1)!important;stroke-dashoffset:0!important}
 }
