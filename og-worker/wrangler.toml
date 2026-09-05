@@ -1,0 +1,14 @@
+name = "nexus-og-worker"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[browser]
+binding = "BROWSER"
+
+[vars]
+SITE_URL = "https://nexus.ayivisolutions.com"
+
+[[kv_namespaces]]
+binding = "OG_CACHE"
+id = "6ef2e4304cba4a09ac0dd589670a8ba9"
