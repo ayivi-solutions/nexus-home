@@ -96,3 +96,15 @@ $$('[data-scene-slider]').forEach((slider)=>{
   let touchX=0;slider.addEventListener('touchstart',e=>touchX=e.touches[0].clientX,{passive:true});slider.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>42){show(index+(dx<0?1:-1));start()}},{passive:true});
   show(0);start();
 });
+
+// v1.6.0 — ecosystem diagram: hovering/focusing a connector node highlights its link line
+const ecoOrbit=$('.ecosystem-orbit');
+if(ecoOrbit){
+  $$('.eco',ecoOrbit).forEach(btn=>{
+    const link=ecoOrbit.querySelector(`.eco-link[data-for="${btn.dataset.link}"]`);
+    const on=()=>{btn.classList.add('is-active');link&&link.classList.add('is-active')};
+    const off=()=>{btn.classList.remove('is-active');link&&link.classList.remove('is-active')};
+    btn.addEventListener('mouseenter',on);btn.addEventListener('mouseleave',off);
+    btn.addEventListener('focus',on);btn.addEventListener('blur',off);
+  });
+}
