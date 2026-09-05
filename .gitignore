@@ -10,3 +10,4 @@ Thumbs.db
 # Local env (not used by this static site, kept as a safety net)
 .env
 .env.local
+og-worker/node_modules/
