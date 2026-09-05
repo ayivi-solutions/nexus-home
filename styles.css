@@ -124,3 +124,26 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,[
   .hero-orbit,.orbit-card,.hero-device,.device-phone,.dash-scan,.dash-live em,.alert-dot,.phone-alert,.trend-dot,.ptrend-dot{animation:none!important}
   .dash-bars rect,.phone-bars .pbar,.donut-seg,.pdonut-seg,.trend-line,.trend-fill,.ptrend-line{animation:none!important;opacity:1!important;transform:scaleY(1)!important;stroke-dashoffset:0!important}
 }
+
+/* v1.4.0 — capability pillars: connected-node rail + sitewide liveliness pass */
+.capability-shell{box-shadow:0 30px 90px -34px rgba(232,181,99,.35),var(--shadow)}
+.capability-tabs{display:flex;overflow-x:auto;gap:0;padding:24px 18px 16px;background:linear-gradient(180deg,#0d1a30,#142544)}
+.cap-tab{position:relative;flex:1 1 0;min-width:104px;display:flex;flex-direction:column;align-items:center;gap:8px;border:0;background:transparent;padding:0 8px 4px;cursor:pointer;font-family:Inter,sans-serif}
+.cap-tab:not(:last-child):after{content:"";position:absolute;top:15px;left:calc(50% + 21px);width:calc(100% - 42px);height:2px;background:rgba(255,255,255,.16);z-index:0}
+.cap-num{position:relative;z-index:1;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#1b2c4a;border:2px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-family:Sora,sans-serif;font-weight:700;font-size:.66rem;transition:.25s ease}
+.cap-label{font-size:.64rem;font-weight:700;color:rgba(255,255,255,.5);text-align:center;line-height:1.25;transition:.25s ease}
+.cap-tab:hover .cap-num{border-color:var(--gold);color:#fff}
+.cap-tab:hover .cap-label{color:rgba(255,255,255,.82)}
+.cap-tab.active .cap-num{background:var(--gold);border-color:var(--gold);color:var(--navy);box-shadow:0 0 0 5px rgba(232,181,99,.2)}
+.cap-tab.active .cap-label{color:#fff}
+.cap-item{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.cap-item:before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;background:var(--gold);opacity:0;transition:opacity .22s ease}
+.cap-item:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(10,19,38,.14);border-color:rgba(232,181,99,.45)}
+.cap-item:hover:before{opacity:1}
+
+/* Hover-lift consistency: these card types had none while .problem-card and .btn did */
+.moat,.stack-card,.trust-card,.ghana-card{transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease}
+.stack-card:hover,.ghana-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(232,181,99,.5)}
+.moat:hover,.trust-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 1px rgba(232,181,99,.28);border-color:rgba(232,181,99,.5);background:rgba(255,255,255,.055)}
+
+@media(max-width:520px){.cap-tab{min-width:82px}.cap-label{font-size:.58rem}}
